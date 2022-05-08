@@ -4,7 +4,6 @@ import Header from './Header'
 import Filter from './Filter'
 import Listings from './Listings'
 import listingsData from './data/ListingsData'
-import './css/main.css'
 
 class App extends Component {
   constructor() {
