@@ -130,9 +130,11 @@ class App extends Component {
     var cities = this.state.listingsData.map((item) => {
       return item.city
     })
+    //Set Constructor - remove duplicate elements from the object.
     cities = new Set(cities)
+    //Spread operator - turn object into array
     cities = [...cities]
-
+    //Sort function - sorts the elements as strings in alphabetical and ascending
     cities = cities.sort()
 
     //homeType

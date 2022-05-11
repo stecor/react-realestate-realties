@@ -124,6 +124,20 @@ var listingsData = [
     homeType: 'Room',
     image: require('../images/Lara Andrew_554x377.jpg'),
   },
+  {
+    user: 'Mark Philips',
+    userImg: require('../images/Mark_Philips_60x60.jpg'),
+    postDate: '15/02/2016',
+    address: '33 Universal St.',
+    city: 'Miami',
+    state: 'FL',
+    rooms: 0,
+    price: 1100,
+    floorSpace: 1350,
+    extras: ['elevator', 'pool'],
+    homeType: 'Studio',
+    image: require('../images/MarkPhilips-554x400.jpg'),
+  },
 ]
 
 export default listingsData

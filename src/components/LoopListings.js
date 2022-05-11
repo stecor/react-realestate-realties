@@ -1,8 +1,8 @@
 import React from 'react'
 
 const LoopListings = (props) => {
-  const listingsData = props.listings
-  console.log(listingsData)
+  const listingsData = props.listingsData
+
   if (listingsData === undefined || listingsData.length === 0) {
     return 'Sorry your filter did not match any listing'
   }
@@ -12,7 +12,7 @@ const LoopListings = (props) => {
       .toFixed(2)
       .replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
 
-    if (props.view !== 'box') {
+    if (props.globalState.view === 'box') {
       //this is the box view
       return (
         <div className='col-md-3' key={index}>

@@ -1,18 +1,17 @@
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 const Filter = (props) => {
   useEffect(() => {
-    // populateAction()
+    props.populateAction()
   }, [])
 
   const cities = () => {
-    if (this.props.globalState.populateFormsData.cities !== undefined) {
-      var { cities } = this.props.globalState.populateFormsData
-      console.log(cities)
+    if (props.globalState.populateFormsData.cities !== undefined) {
+      let { cities } = props.globalState.populateFormsData
+
       return cities.map((item) => {
         return (
-          <option key={item} value={item}>
+          <option name='select city' key={item} value={item}>
             {item}
           </option>
         )
@@ -21,9 +20,9 @@ const Filter = (props) => {
   }
 
   const homeTypes = () => {
-    if (this.props.globalState.populateFormsData.homeTypes !== undefined) {
-      var { homeTypes } = this.props.globalState.populateFormsData
-      console.log(homeTypes)
+    if (props.globalState.populateFormsData.homeTypes !== undefined) {
+      var { homeTypes } = props.globalState.populateFormsData
+
       return homeTypes.map((item) => {
         return (
           <option key={item} value={item}>
@@ -35,9 +34,9 @@ const Filter = (props) => {
   }
 
   const bedrooms = () => {
-    if (this.props.globalState.populateFormsData.bedrooms !== undefined) {
-      var { bedrooms } = this.props.globalState.populateFormsData
-      console.log(bedrooms)
+    if (props.globalState.populateFormsData.bedrooms !== undefined) {
+      var { bedrooms } = props.globalState.populateFormsData
+
       return bedrooms.map((item) => {
         return (
           <option key={item} value={item}>
@@ -56,28 +55,29 @@ const Filter = (props) => {
         <select
           name='city'
           className='filters city'
-          onChange={() => props.change()}
+          type='select'
+          onChange={(event) => props.onChange(event)}
         >
           <option value='All'>All Cities</option>
-          {() => cities()}
+          {cities()}
         </select>
 
         <select
           name='homeType'
           className='filters homeType'
-          onChange={() => props.change()}
+          onChange={(event) => props.onChange(event)}
         >
           <option value='All'>All Home Types</option>
-          {() => homeTypes()}
+          {homeTypes()}
         </select>
         <label htmlFor='bedrooms'></label>
         <select
           name='bedrooms'
           className='filters bedrooms'
-          onChange={() => props.change()}
+          onChange={(event) => props.onChange(event)}
         >
           <option value='0'>All Bedrooms</option>
-          {() => bedrooms()}
+          {bedrooms()}
         </select>
         <div className='filters price'>
           <span className='title price'>Price</span>
@@ -86,16 +86,17 @@ const Filter = (props) => {
             type='text'
             name='min_price'
             className='min-price'
-            onChange={() => props.change()}
-            value={() => props.globalState.min_price}
+            onChange={(event) => props.onChange(event)}
+            value={props.globalState.min_price}
           />
+
           <label htmlFor='max_price'>Min.</label>
           <input
             type='text'
             name='max_price'
             className='max-price'
-            onChange={() => props.change()}
-            value={() => props.globalState.max_price}
+            onChange={(event) => props.onChange(event)}
+            value={props.globalState.max_price}
           />
         </div>
 
@@ -106,16 +107,16 @@ const Filter = (props) => {
             type='text'
             name='min_floor_space'
             className='min-floor-space'
-            onChange={() => props.change()}
-            value={() => props.globalState.min_floor_space}
+            onChange={(event) => props.onChange(event)}
+            value={props.globalState.min_floor_space}
           />
           <label htmlFor='max_floor_space'>Max.</label>
           <input
             type='text'
             name='max_floor_space'
             className='max-floor-space'
-            onChange={() => props.change()}
-            value={() => props.globalState.max_floor_space}
+            onChange={(event) => props.onChange(event)}
+            value={props.globalState.max_floor_space}
           />
         </div>
 
@@ -128,7 +129,7 @@ const Filter = (props) => {
               type='checkbox'
               value='elevator'
               name='elevator'
-              onChange={() => props.change()}
+              onChange={(event) => props.onChange(event)}
             />
           </label>
           <hr />
@@ -138,7 +139,7 @@ const Filter = (props) => {
               type='checkbox'
               value='swimming-pool'
               name='swimming_pool'
-              onChange={() => props.change()}
+              onChange={(event) => props.onChange(event)}
             />
           </label>
           <hr />
@@ -148,7 +149,7 @@ const Filter = (props) => {
               type='checkbox'
               value='basement'
               name='basement'
-              onChange={() => props.change()}
+              onChange={(event) => props.onChange(event)}
             />
           </label>
           <hr />
@@ -158,7 +159,7 @@ const Filter = (props) => {
               type='checkbox'
               value='gym'
               name='gym'
-              onChange={() => props.change()}
+              onChange={(event) => props.onChange(event)}
             />
           </label>
           <hr />
@@ -168,7 +169,7 @@ const Filter = (props) => {
               type='checkbox'
               value='storage'
               name='storage'
-              onChange={() => props.change()}
+              onChange={(event) => props.onChange(event)}
             />
           </label>
           <hr />
@@ -178,7 +179,7 @@ const Filter = (props) => {
               type='checkbox'
               value='parking'
               name='parking'
-              onChange={() => props.change()}
+              onChange={(event) => props.onChange(event)}
             />
           </label>
           <hr />

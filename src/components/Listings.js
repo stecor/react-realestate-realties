@@ -1,7 +1,7 @@
-import React, { forwardRef } from 'react'
+import React from 'react'
 import LoopListings from './LoopListings'
 
-const Listings = forwardRef((props, ref) => {
+const Listings = (props) => {
   return (
     <section id='listings'>
       {/* Search Area */}
@@ -9,8 +9,7 @@ const Listings = forwardRef((props, ref) => {
         <input
           type='text'
           name='search'
-          ref={ref}
-          onChange={props.onChange}
+          onChange={() => props.onChange()}
           placeholder='Search'
           onFocus={(e) => (e.target.placeholder = '')}
           onBlur={(e) => (e.target.placeholder = 'Search')}
@@ -20,7 +19,11 @@ const Listings = forwardRef((props, ref) => {
       <section className='sortby-area'>
         <div className='results'>{props.listingsData.length} results found</div>
         <div className='sort-options'>
-          <select name='sortby' className='sortby' onChange={props.onChange}>
+          <select
+            name='sortby'
+            className='sortby'
+            onChange={() => props.onChange()}
+          >
             <option value='price-asc'>Lowest Price</option>
             <option value='price-dsc'>Highest Price</option>
           </select>
@@ -28,12 +31,14 @@ const Listings = forwardRef((props, ref) => {
             <i
               className='fa fa-th-list'
               aria-hidden='true'
-              // onClick={props.changeView(null, 'long')}
+              onClick={() => props.changeView('long')}
+              style={{ cursor: 'pointer' }}
             ></i>
             <i
               className='fa fa-th'
               aria-hidden='true'
-              // onClick={this.props.changeView.bind(null, 'box')}
+              onClick={() => props.changeView('box')}
+              style={{ cursor: 'pointer' }}
             ></i>
           </div>
         </div>
@@ -41,7 +46,10 @@ const Listings = forwardRef((props, ref) => {
 
       <section className='listings-results'>
         <div className='row'>
-          <LoopListings listings={props.listingsData} />
+          <LoopListings
+            globalState={props.globalState}
+            listingsData={props.listingsData}
+          />
         </div>
       </section>
 
@@ -60,6 +68,6 @@ const Listings = forwardRef((props, ref) => {
       </section>
     </section>
   )
-})
+}
 
 export default Listings
