@@ -46,7 +46,7 @@ const App = () => {
   }, [])
 
   const filterData = () => {
-    console.log('filterData')
+    console.log(state.city)
     let newData = state.listingsData.filter((item) => {
       return (
         item.price >= state.min_price &&
@@ -152,23 +152,19 @@ const App = () => {
   }
 
   const change = (event) => {
-    var name = event.target.name
-    var value =
+    const name = event.target.name
+    const value =
       event.target.type === 'checkbox'
         ? event.target.checked
         : event.target.value
-    console.log(name)
-    console.log(value)
+    console.log('name=' + name)
+    console.log('value=' + value)
     console.log(event.target.type)
-    setState(
-      {
-        [name]: value,
-      },
-      () => {
-        console.log(state)
-        filterData()
-      }
-    )
+
+    setState((prev) => ({ ...prev, city: 'Miami' }))
+
+    console.log('setstate=' + state.city)
+    filterData()
   }
 
   return (
