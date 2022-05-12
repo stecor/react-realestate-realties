@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 
 const Filter = (props) => {
-  useEffect(() => {
-    props.populateAction()
-  }, [])
+  // useEffect(() => {
+  //   props.populateAction()
+  // }, [])
 
   const cities = () => {
+    console.log('cities')
+    // console.log(props.globalState.populateFormsData.cities)
     if (props.globalState.populateFormsData.cities !== undefined) {
       let { cities } = props.globalState.populateFormsData
 
@@ -56,7 +58,7 @@ const Filter = (props) => {
           name='city'
           className='filters city'
           type='select'
-          onChange={(event) => props.onChange(event)}
+          onChange={props.onChange}
         >
           <option value='All'>All Cities</option>
           {cities()}
@@ -65,7 +67,7 @@ const Filter = (props) => {
         <select
           name='homeType'
           className='filters homeType'
-          onChange={(event) => props.onChange(event)}
+          onChange={props.onChange}
         >
           <option value='All'>All Home Types</option>
           {homeTypes()}
@@ -74,7 +76,7 @@ const Filter = (props) => {
         <select
           name='bedrooms'
           className='filters bedrooms'
-          onChange={(event) => props.onChange(event)}
+          onChange={props.onChange}
         >
           <option value='0'>All Bedrooms</option>
           {bedrooms()}
@@ -86,7 +88,7 @@ const Filter = (props) => {
             type='text'
             name='min_price'
             className='min-price'
-            onChange={(event) => props.onChange(event)}
+            onChange={props.onChange}
             value={props.globalState.min_price}
           />
 
@@ -95,7 +97,7 @@ const Filter = (props) => {
             type='text'
             name='max_price'
             className='max-price'
-            onChange={(event) => props.onChange(event)}
+            onChange={props.onChange}
             value={props.globalState.max_price}
           />
         </div>
@@ -107,7 +109,7 @@ const Filter = (props) => {
             type='text'
             name='min_floor_space'
             className='min-floor-space'
-            onChange={(event) => props.onChange(event)}
+            onChange={props.onChange}
             value={props.globalState.min_floor_space}
           />
           <label htmlFor='max_floor_space'>Max.</label>
@@ -115,7 +117,7 @@ const Filter = (props) => {
             type='text'
             name='max_floor_space'
             className='max-floor-space'
-            onChange={(event) => props.onChange(event)}
+            onChange={props.onChange}
             value={props.globalState.max_floor_space}
           />
         </div>
@@ -129,7 +131,7 @@ const Filter = (props) => {
               type='checkbox'
               value='elevator'
               name='elevator'
-              onChange={(event) => props.onChange(event)}
+              onChange={props.onChange}
             />
           </label>
           <hr />
@@ -139,7 +141,7 @@ const Filter = (props) => {
               type='checkbox'
               value='swimming-pool'
               name='swimming_pool'
-              onChange={(event) => props.onChange(event)}
+              onChange={props.onChange}
             />
           </label>
           <hr />
@@ -149,7 +151,7 @@ const Filter = (props) => {
               type='checkbox'
               value='basement'
               name='basement'
-              onChange={(event) => props.onChange(event)}
+              onChange={props.onChange}
             />
           </label>
           <hr />
@@ -159,7 +161,7 @@ const Filter = (props) => {
               type='checkbox'
               value='gym'
               name='gym'
-              onChange={(event) => props.onChange(event)}
+              onChange={props.onChange}
             />
           </label>
           <hr />
@@ -169,7 +171,7 @@ const Filter = (props) => {
               type='checkbox'
               value='storage'
               name='storage'
-              onChange={(event) => props.onChange(event)}
+              onChange={props.onChange}
             />
           </label>
           <hr />
@@ -179,7 +181,7 @@ const Filter = (props) => {
               type='checkbox'
               value='parking'
               name='parking'
-              onChange={(event) => props.onChange(event)}
+              onChange={props.onChange}
             />
           </label>
           <hr />
@@ -189,4 +191,4 @@ const Filter = (props) => {
   )
 }
 
-export default Filter
+export default React.memo(Filter)

@@ -6,34 +6,32 @@ import listingsData from './data/ListingsData'
 
 import { useState, useEffect } from 'react'
 
-const initialState = {
-  listingsData,
-  city: 'All',
-  homeType: 'All',
-  bedrooms: '0',
-  // price
-  min_price: 0,
-  max_price: 1000000,
-  // floor
-  min_floor_space: 0,
-  max_floor_space: 50000,
-  // extras
-  elevator: false,
-  finished_basement: false,
-  gym: false,
-  swimming_pool: false,
-  filterData: listingsData,
-  populateFormsData: '',
-  sortby: 'price-asc',
-  view: 'box',
-  search: '',
-}
-
 const App = () => {
-  const [state, setState] = useState(initialState)
+  const [state, setState] = useState({
+    listingsData,
+    city: 'All',
+    homeType: 'All',
+    bedrooms: '0',
+    // price
+    min_price: 0,
+    max_price: 1000000,
+    // floor
+    min_floor_space: 0,
+    max_floor_space: 50000,
+    // extras
+    elevator: false,
+    finished_basement: false,
+    gym: false,
+    swimming_pool: false,
+    filterData: listingsData,
+    populateFormsData: '',
+    sortby: 'price-asc',
+    view: 'box',
+    search: '',
+  })
 
   useEffect(() => {
-    const listingsData = state.listingsData.sort((a, b) => {
+    const listingsData = state.filterData.sort((a, b) => {
       return a.price - b.price
     })
 
@@ -45,58 +43,25 @@ const App = () => {
     populateForms()
   }, [])
 
-  const filterData = () => {
-    console.log(state.city)
-    let newData = state.listingsData.filter((item) => {
-      return (
-        item.price >= state.min_price &&
-        item.price <= state.max_price &&
-        item.floorSpace >= state.min_floor_space &&
-        item.floorSpace <= state.max_floor_space &&
-        item.rooms >= state.bedrooms
-      )
-    })
+  const change = (event) => {
+    let name = event.target.name
+    let value =
+      event.target.type === 'checkbox'
+        ? event.target.checked
+        : event.target.value
 
-    if (state.city !== 'All') {
-      newData = newData.filter((item) => {
-        return item.city === state.city
-      })
-    }
+    console.log('name=' + [name])
+    console.log('value=' + value)
+    console.log(event.target.type)
+    name = name.replaceAll(`"`, `'`)
+    value = value.replaceAll(`"`, `'`)
+    setState({ ...state, [name]: value }, filterData())
+  }
 
-    if (state.homeType !== 'All') {
-      newData = newData.filter((item) => {
-        return item.homeType === state.homeType
-      })
-    }
-
-    if (state.sortby === 'price-asc') {
-      newData = newData.sort((a, b) => {
-        return a.price - b.price
-      })
-    }
-
-    if (state.sortby === 'price-dsc') {
-      newData = newData.sort((a, b) => {
-        return b.price - a.price
-      })
-    }
-
-    if (state.search !== '') {
-      newData = newData.filter((item) => {
-        var city = item.city.toLowerCase()
-        var searchText = state.search.toLowerCase()
-        var n = city.match(searchText)
-
-        if (n != null) {
-          return true
-        } else {
-          return false
-        }
-      })
-    }
-
-    return setState({
-      filterData: newData,
+  const changeView = (viewName) => {
+    setState({
+      ...state,
+      view: viewName,
     })
   }
 
@@ -144,27 +109,63 @@ const App = () => {
     })
   }
 
-  const changeView = (viewName) => {
+  const filterData = () => {
+    console.log('name=' + state.city)
+
+    let newData = state.listingsData.filter((item) => {
+      return (
+        item.price >= state.min_price &&
+        item.price <= state.max_price &&
+        item.floorSpace >= state.min_floor_space &&
+        item.floorSpace <= state.max_floor_space &&
+        item.rooms >= state.bedrooms
+      )
+    })
+
+    if (state.city !== 'All') {
+      newData = newData.filter((item) => {
+        return item.city === state.city
+      })
+    }
+
+    if (state.homeType !== 'All') {
+      newData = newData.filter((item) => {
+        return item.homeType === state.homeType
+      })
+    }
+
+    if (state.sortby === 'price-asc') {
+      newData = newData.sort((a, b) => {
+        return a.price - b.price
+      })
+    }
+
+    if (state.sortby === 'price-dsc') {
+      newData = newData.sort((a, b) => {
+        return b.price - a.price
+      })
+    }
+
+    if (state.search === '') {
+      newData = newData.filter((item) => {
+        let city = item.city.toLowerCase()
+        let searchText = state.search.toLowerCase()
+        let n = city.match(searchText)
+
+        if (n != null) {
+          return true
+        } else {
+          return false
+        }
+      })
+    }
+    console.log(newData)
+
+    const { newfilterData } = newData
     setState({
       ...state,
-      view: viewName,
+      filterData: newfilterData,
     })
-  }
-
-  const change = (event) => {
-    const name = event.target.name
-    const value =
-      event.target.type === 'checkbox'
-        ? event.target.checked
-        : event.target.value
-    console.log('name=' + name)
-    console.log('value=' + value)
-    console.log(event.target.type)
-
-    setState((prev) => ({ ...prev, city: 'Miami' }))
-
-    console.log('setstate=' + state.city)
-    filterData()
   }
 
   return (

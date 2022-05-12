@@ -1,6 +1,7 @@
 import React from 'react'
 
 const LoopListings = (props) => {
+  console.log(props.globalState)
   const listingsData = props.listingsData
 
   if (listingsData === undefined || listingsData.length === 0) {

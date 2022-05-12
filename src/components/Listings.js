@@ -9,7 +9,7 @@ const Listings = (props) => {
         <input
           type='text'
           name='search'
-          onChange={() => props.onChange()}
+          onChange={(event) => props.onChange(event)}
           placeholder='Search'
           onFocus={(e) => (e.target.placeholder = '')}
           onBlur={(e) => (e.target.placeholder = 'Search')}
@@ -22,7 +22,7 @@ const Listings = (props) => {
           <select
             name='sortby'
             className='sortby'
-            onChange={() => props.onChange()}
+            onChange={(event) => props.onChange(event)}
           >
             <option value='price-asc'>Lowest Price</option>
             <option value='price-dsc'>Highest Price</option>
@@ -70,4 +70,4 @@ const Listings = (props) => {
   )
 }
 
-export default Listings
+export default React.memo(Listings)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Listings extends Component {
+class Listings extends Component {
   constructor() {
     super()
     this.state = {}
@@ -167,7 +167,7 @@ export default class Listings extends Component {
         </section>
 
         <section className='listings-results'>
-          <div className='row'>{this.LoopListings()}</div>
+          <div className='row'>{this.loopListings}</div>
         </section>
 
         <section id='pagination'>
@@ -187,3 +187,4 @@ export default class Listings extends Component {
     )
   }
 }
+export default Listings
