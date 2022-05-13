@@ -9,28 +9,33 @@ import { useState, useEffect } from 'react'
 const App = () => {
   const [state, setState] = useState({
     listingsData,
+    //filterData
+    filterData: listingsData,
+    populateFormsData: '',
     city: 'All',
     homeType: 'All',
-    bedrooms: '0',
+    rooms: '0',
     // price
     min_price: 0,
     max_price: 1000000,
     // floor
     min_floor_space: 0,
     max_floor_space: 50000,
-    // extras
+    //extras
     elevator: false,
-    finished_basement: false,
+    basement: false,
     gym: false,
-    swimming_pool: false,
-    filterData: listingsData,
-    populateFormsData: '',
+    pool: false,
+    storage: false,
+    parking: false,
     sortby: 'price-asc',
     view: 'box',
     search: '',
   })
 
   useEffect(() => {
+    console.log('useEffect')
+    // console.log(state.listingsData)
     const listingsData = state.filterData.sort((a, b) => {
       return a.price - b.price
     })
@@ -53,9 +58,19 @@ const App = () => {
     console.log('name=' + [name])
     console.log('value=' + value)
     console.log(event.target.type)
-    name = name.replaceAll(`"`, `'`)
-    value = value.replaceAll(`"`, `'`)
-    setState({ ...state, [name]: value }, filterData())
+
+    if (typeof value === 'string' || value instanceof String) {
+      name = name.replaceAll(`"`, `'`)
+      value = value.replaceAll(`"`, `'`)
+    }
+
+    setState(
+      {
+        ...state,
+        [name]: value,
+      },
+      filterData()
+    )
   }
 
   const changeView = (viewName) => {
@@ -89,17 +104,17 @@ const App = () => {
     homeTypes = homeTypes.sort()
 
     //bedrooms
-    var bedrooms = state.listingsData.map((item) => {
+    var rooms = state.listingsData.map((item) => {
       return item.rooms
     })
-    bedrooms = new Set(bedrooms)
-    bedrooms = [...bedrooms]
+    rooms = new Set(rooms)
+    rooms = [...rooms]
 
-    bedrooms = bedrooms.sort()
+    rooms = rooms.sort()
 
     const populateFormsData = {
       homeTypes,
-      bedrooms,
+      rooms,
       cities,
     }
 
@@ -109,19 +124,18 @@ const App = () => {
     })
   }
 
+  // FilterData
   const filterData = () => {
-    console.log('name=' + state.city)
-
     let newData = state.listingsData.filter((item) => {
       return (
         item.price >= state.min_price &&
         item.price <= state.max_price &&
         item.floorSpace >= state.min_floor_space &&
         item.floorSpace <= state.max_floor_space &&
-        item.rooms >= state.bedrooms
+        item.rooms >= state.rooms
       )
     })
-
+    // console.log(state.city)
     if (state.city !== 'All') {
       newData = newData.filter((item) => {
         return item.city === state.city
@@ -146,25 +160,24 @@ const App = () => {
       })
     }
 
-    if (state.search === '') {
+    if (state.search !== '') {
       newData = newData.filter((item) => {
         let city = item.city.toLowerCase()
         let searchText = state.search.toLowerCase()
         let n = city.match(searchText)
 
         if (n != null) {
-          return true
+          return newData
         } else {
           return false
         }
       })
     }
+    //console.log('newData')
     console.log(newData)
-
-    const { newfilterData } = newData
     setState({
       ...state,
-      filterData: newfilterData,
+      filterData: newData,
     })
   }
 
@@ -173,14 +186,13 @@ const App = () => {
       <Header />
       <section id='content-area'>
         <Filter
-          onChange={change}
-          populateAction={populateForms}
+          onChange={(event) => change(event)}
+          //populateAction={populateForms()}
           globalState={state}
         />
         <div>
           <Listings
-            listingsData={state.filterData}
-            onChange={change}
+            onChange={(event) => change(event)}
             globalState={state}
             changeView={changeView}
           />

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 const Filter = (props) => {
   // useEffect(() => {
@@ -6,7 +6,7 @@ const Filter = (props) => {
   // }, [])
 
   const cities = () => {
-    console.log('cities')
+    //console.log('cities')
     // console.log(props.globalState.populateFormsData.cities)
     if (props.globalState.populateFormsData.cities !== undefined) {
       let { cities } = props.globalState.populateFormsData
@@ -35,11 +35,11 @@ const Filter = (props) => {
     }
   }
 
-  const bedrooms = () => {
-    if (props.globalState.populateFormsData.bedrooms !== undefined) {
-      var { bedrooms } = props.globalState.populateFormsData
+  const rooms = () => {
+    if (props.globalState.populateFormsData.rooms !== undefined) {
+      var { rooms } = props.globalState.populateFormsData
 
-      return bedrooms.map((item) => {
+      return rooms.map((item) => {
         return (
           <option key={item} value={item}>
             {item}+ BR
@@ -61,6 +61,7 @@ const Filter = (props) => {
           onChange={props.onChange}
         >
           <option value='All'>All Cities</option>
+
           {cities()}
         </select>
 
@@ -74,12 +75,12 @@ const Filter = (props) => {
         </select>
         <label htmlFor='bedrooms'></label>
         <select
-          name='bedrooms'
+          name='rooms'
           className='filters bedrooms'
           onChange={props.onChange}
         >
           <option value='0'>All Bedrooms</option>
-          {bedrooms()}
+          {rooms()}
         </select>
         <div className='filters price'>
           <span className='title price'>Price</span>
@@ -129,18 +130,18 @@ const Filter = (props) => {
             <span>Elevator</span>
             <input
               type='checkbox'
-              value='elevator'
+              value={props.globalState.elevator}
               name='elevator'
               onChange={props.onChange}
             />
           </label>
           <hr />
-          <label htmlFor='swimming_pool'>
+          <label htmlFor='pool'>
             <span>Swimming Pool</span>
             <input
               type='checkbox'
-              value='swimming-pool'
-              name='swimming_pool'
+              value={props.globalState.pool}
+              name='pool'
               onChange={props.onChange}
             />
           </label>
@@ -149,7 +150,7 @@ const Filter = (props) => {
             <span>Basement</span>
             <input
               type='checkbox'
-              value='basement'
+              value={props.globalState.basement}
               name='basement'
               onChange={props.onChange}
             />
@@ -159,7 +160,7 @@ const Filter = (props) => {
             <span>Gym</span>
             <input
               type='checkbox'
-              value='gym'
+              value={props.globalState.gym}
               name='gym'
               onChange={props.onChange}
             />
@@ -169,7 +170,7 @@ const Filter = (props) => {
             <span>Storage</span>
             <input
               type='checkbox'
-              value='storage'
+              value={props.globalState.storage}
               name='storage'
               onChange={props.onChange}
             />
@@ -179,7 +180,7 @@ const Filter = (props) => {
             <span>Parking</span>
             <input
               type='checkbox'
-              value='parking'
+              value={props.globalState.parking}
               name='parking'
               onChange={props.onChange}
             />
@@ -191,4 +192,4 @@ const Filter = (props) => {
   )
 }
 
-export default React.memo(Filter)
+export default Filter

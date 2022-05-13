@@ -1,8 +1,9 @@
 import React from 'react'
 
 const LoopListings = (props) => {
+  console.log('globalState')
   console.log(props.globalState)
-  const listingsData = props.listingsData
+  const listingsData = props.globalState.filterData
 
   if (listingsData === undefined || listingsData.length === 0) {
     return 'Sorry your filter did not match any listing'

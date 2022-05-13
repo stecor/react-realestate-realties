@@ -17,7 +17,9 @@ const Listings = (props) => {
       </section>
 
       <section className='sortby-area'>
-        <div className='results'>{props.listingsData.length} results found</div>
+        <div className='results'>
+          {props.globalState.filterData.length} results found
+        </div>
         <div className='sort-options'>
           <select
             name='sortby'
@@ -46,10 +48,7 @@ const Listings = (props) => {
 
       <section className='listings-results'>
         <div className='row'>
-          <LoopListings
-            globalState={props.globalState}
-            listingsData={props.listingsData}
-          />
+          <LoopListings globalState={props.globalState} />
         </div>
       </section>
 
@@ -70,4 +69,4 @@ const Listings = (props) => {
   )
 }
 
-export default React.memo(Listings)
+export default Listings
