@@ -33,7 +33,20 @@ const App = () => {
 
   const [data, setData] = useState(initialData)
 
-  const change = (event) => {
+  useEffect(() => {
+    filteringData()
+  }, [
+    data.city,
+    data.homeType,
+    data.rooms,
+    data.price,
+    data.sortby,
+    data.elevator,
+    data.basement,
+    data.search,
+  ])
+
+  let change = (event) => {
     let name = event.target.name
     let value =
       event.target.type === 'checkbox'
@@ -43,11 +56,13 @@ const App = () => {
     console.log('name=' + name)
     console.log('value=' + value)
     console.log(event.target.type)
+    //filter(name, value).then(filteringData())
+
     setData({ ...data, [name]: value })
   }
 
   const changeView = (viewName) => {
-    setData({ view: viewName })
+    setData({ ...data, view: viewName })
   }
 
   const populateForms = () => {
@@ -150,8 +165,7 @@ const App = () => {
     }
 
     console.log(newData)
-
-    setData({ ...data, filterData: newData })
+    setData((prevData) => ({ ...prevData, filterData: newData }))
   }
 
   return (
@@ -167,7 +181,6 @@ const App = () => {
         <div>
           <Listings
             onChange={change}
-            filterChange={filteringData}
             globalState={data}
             changeView={changeView}
           />

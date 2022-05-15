@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const LoopListings = (props) => {
   console.log('globalState')

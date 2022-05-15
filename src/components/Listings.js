@@ -17,7 +17,9 @@ const Listings = (props) => {
       </section>
 
       <section className='sortby-area'>
-        <div className='results'>{props.globalState.length} results found</div>
+        <div className='results'>
+          {props.globalState.filterData.length} results found
+        </div>
         <div className='sort-options'>
           <select name='sortby' className='sortby' onChange={props.onChange}>
             <option value='price-asc'>Lowest Price</option>
@@ -42,10 +44,7 @@ const Listings = (props) => {
 
       <section className='listings-results'>
         <div className='row'>
-          <LoopListings
-            globalState={props.globalState}
-            onChange={props.filterChange}
-          />
+          <LoopListings globalState={props.globalState} />
         </div>
       </section>
 
