@@ -53,10 +53,9 @@ const App = () => {
         ? event.target.checked
         : event.target.value
 
-    console.log('name=' + name)
-    console.log('value=' + value)
-    console.log(event.target.type)
-    //filter(name, value).then(filteringData())
+    // console.log('name=' + name)
+    // console.log('value=' + value)
+    // console.log(event.target.type)
 
     setData({ ...data, [name]: value })
   }

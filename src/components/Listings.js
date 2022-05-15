@@ -21,11 +21,11 @@ const Listings = (props) => {
           {props.globalState.filterData.length} results found
         </div>
         <div className='sort-options'>
-          <select name='sortby' className='sortby' onChange={props.onChange}>
-            <option value='price-asc'>Lowest Price</option>
-            <option value='price-dsc'>Highest Price</option>
-          </select>
           <div className='view'>
+            <select name='sortby' className='sortby' onChange={props.onChange}>
+              <option value='price-asc'>Lowest Price</option>
+              <option value='price-dsc'>Highest Price</option>
+            </select>
             <i
               className='fa fa-th-list'
               aria-hidden='true'

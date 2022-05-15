@@ -39,7 +39,7 @@
   font-size: 0.6rem;
   color: #c8c8c8;
 }
-#filter .filters input[type="text"] {
+#filter .filters input[type='text'] {
   border-radius: 5px;
   font-size: 1rem;
   padding: 0.4rem;
@@ -56,17 +56,16 @@
   width: 100%;
   padding: 10px 0;
 }
-#filter .filters.extras label input[type="checkbox"] {
+#filter .filters.extras label input[type='checkbox'] {
   float: right;
 }
 #listings {
   width: 70%;
   float: left;
-  display: inline-block;
   padding: 15px;
   background: #fffeff;
 }
-#listings .search-area input[type="text"] {
+#listings .search-area input[type='text'] {
   width: 70%;
   background: transparent;
   font-size: 2rem;
@@ -101,14 +100,19 @@
 #listings .sortby-area .sort-options .view {
   display: inline-block;
 }
+
+#listings .sortby-area .sort-options .view .sortby {
+  display: inline-block;
+  padding: 5px;
+}
 #listings .sortby-area .sort-options .view .fa {
   margin-right: 15px;
-  font-size: 1.5rem;
+  font-size: 2.1rem;
   color: darkgrey;
 }
 #listings .listings-results .listing {
   background: #fff;
-  border-radius: 5px;
+  border-radius: 20px;
   margin-bottom: 60px;
   -webkit-box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
   -moz-box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
@@ -123,12 +127,12 @@
   -o-background-size: cover;
   background-size: cover;
   min-height: 200px;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 #listings .listings-results .listing-img:hover .details {
   opacity: 1;
@@ -154,20 +158,32 @@
   left: 0;
   bottom: 0;
   right: 0;
-  -webkit-border-top-left-radius: 5px;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  -webkit-border-top-left-radius: 20px;
+  -webkit-border-top-right-radius: 20px;
+  -moz-border-radius-topleft: 20px;
+  -moz-border-radius-topright: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7711f4+0,c204f2+100 */
-  background: rgba(119, 17, 244, .8);
+  background: rgba(119, 17, 244, 0.8);
   /* Old browsers */
-  background: -moz-linear-gradient(-45deg, rgba(119, 17, 244, .8) 0%, rgba(194, 4, 242, .8) 100%);
+  background: -moz-linear-gradient(
+    -45deg,
+    rgba(119, 17, 244, 0.8) 0%,
+    rgba(194, 4, 242, 0.8) 100%
+  );
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, rgba(119, 17, 244, .8) 0%, rgba(194, 4, 242, .8) 100%);
+  background: -webkit-linear-gradient(
+    -45deg,
+    rgba(119, 17, 244, 0.8) 0%,
+    rgba(194, 4, 242, 0.8) 100%
+  );
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, rgba(119, 17, 244, .8) 0%, rgba(194, 4, 242, .8) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(119, 17, 244, 0.8) 0%,
+    rgba(194, 4, 242, 0.8) 100%
+  );
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7711f4', endColorstr='#c204f2',GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
@@ -217,13 +233,18 @@
   position: relative;
   top: 3px;
 }
-#listings .listings-results .listing-img .details .listing-details .floor-space {
+#listings
+  .listings-results
+  .listing-img
+  .details
+  .listing-details
+  .floor-space {
   margin-bottom: 1px;
 }
 #listings .listings-results .post-date {
   font-size: 0.6rem;
   display: block;
-  color: rgba(255, 255, 255, .7);
+  color: rgba(255, 255, 255, 0.7);
   padding-top: 10px;
 }
 #listings .listings-results .bottom-info {
@@ -272,7 +293,8 @@
   padding: 20px 30px;
   display: inline-block;
 }
-#pagination .pages li.active, #pagination .pages li:hover {
+#pagination .pages li.active,
+#pagination .pages li:hover {
   color: #fff;
   font-weight: 700;
   background: #639;
