@@ -9,7 +9,7 @@ const Listings = (props) => {
         <input
           type='text'
           name='search'
-          onChange={(event) => props.onChange(event)}
+          onChange={props.onChange}
           placeholder='Search'
           onFocus={(e) => (e.target.placeholder = '')}
           onBlur={(e) => (e.target.placeholder = 'Search')}
@@ -17,15 +17,9 @@ const Listings = (props) => {
       </section>
 
       <section className='sortby-area'>
-        <div className='results'>
-          {props.globalState.filterData.length} results found
-        </div>
+        <div className='results'>{props.globalState.length} results found</div>
         <div className='sort-options'>
-          <select
-            name='sortby'
-            className='sortby'
-            onChange={(event) => props.onChange(event)}
-          >
+          <select name='sortby' className='sortby' onChange={props.onChange}>
             <option value='price-asc'>Lowest Price</option>
             <option value='price-dsc'>Highest Price</option>
           </select>
@@ -48,7 +42,10 @@ const Listings = (props) => {
 
       <section className='listings-results'>
         <div className='row'>
-          <LoopListings globalState={props.globalState} />
+          <LoopListings
+            globalState={props.globalState}
+            onChange={props.filterChange}
+          />
         </div>
       </section>
 

@@ -1,20 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Filter from './components/Filter'
 import Listings from './components/Listings'
-import listingsData from './data/ListingsData'
-
-import { useState, useEffect } from 'react'
+import listData from './data/ListingsData'
 
 const App = () => {
-  const [state, setState] = useState({
-    listingsData,
+  const initialData = {
+    listingsData: listData,
     //filterData
-    filterData: listingsData,
+    filterData: listData,
     populateFormsData: '',
     city: 'All',
     homeType: 'All',
-    rooms: '0',
+    rooms: 'All',
     // price
     min_price: 0,
     max_price: 1000000,
@@ -31,22 +29,9 @@ const App = () => {
     sortby: 'price-asc',
     view: 'box',
     search: '',
-  })
+  }
 
-  useEffect(() => {
-    console.log('useEffect')
-    // console.log(state.listingsData)
-    const listingsData = state.filterData.sort((a, b) => {
-      return a.price - b.price
-    })
-
-    setState({
-      ...state,
-      listingsData,
-    })
-
-    populateForms()
-  }, [])
+  const [data, setData] = useState(initialData)
 
   const change = (event) => {
     let name = event.target.name
@@ -55,34 +40,19 @@ const App = () => {
         ? event.target.checked
         : event.target.value
 
-    console.log('name=' + [name])
+    console.log('name=' + name)
     console.log('value=' + value)
     console.log(event.target.type)
-
-    if (typeof value === 'string' || value instanceof String) {
-      name = name.replaceAll(`"`, `'`)
-      value = value.replaceAll(`"`, `'`)
-    }
-
-    setState(
-      {
-        ...state,
-        [name]: value,
-      },
-      filterData()
-    )
+    setData({ ...data, [name]: value })
   }
 
   const changeView = (viewName) => {
-    setState({
-      ...state,
-      view: viewName,
-    })
+    setData({ view: viewName })
   }
 
   const populateForms = () => {
     // city
-    var cities = state.listingsData.map((item) => {
+    var cities = data.listingsData.map((item) => {
       return item.city
     })
     //Set Constructor - remove duplicate elements from the object.
@@ -95,7 +65,7 @@ const App = () => {
     cities = cities.sort()
 
     //homeType
-    var homeTypes = state.listingsData.map((item) => {
+    var homeTypes = data.listingsData.map((item) => {
       return item.homeType
     })
     homeTypes = new Set(homeTypes)
@@ -104,7 +74,7 @@ const App = () => {
     homeTypes = homeTypes.sort()
 
     //bedrooms
-    var rooms = state.listingsData.map((item) => {
+    var rooms = data.listingsData.map((item) => {
       return item.rooms
     })
     rooms = new Set(rooms)
@@ -118,67 +88,70 @@ const App = () => {
       cities,
     }
 
-    setState({
-      ...state,
+    setData({
+      ...data,
       populateFormsData: populateFormsData,
     })
   }
 
-  // FilterData
-  const filterData = () => {
-    let newData = state.listingsData.filter((item) => {
+  // FilteringData
+  function filteringData() {
+    let newData = data.listingsData.filter((item) => {
       return (
-        item.price >= state.min_price &&
-        item.price <= state.max_price &&
-        item.floorSpace >= state.min_floor_space &&
-        item.floorSpace <= state.max_floor_space &&
-        item.rooms >= state.rooms
+        item.price >= data.min_price &&
+        item.price <= data.max_price &&
+        item.floorSpace >= data.min_floor_space &&
+        item.floorSpace <= data.max_floor_space
       )
     })
-    // console.log(state.city)
-    if (state.city !== 'All') {
+
+    if (data.city !== 'All') {
       newData = newData.filter((item) => {
-        return item.city === state.city
+        return item.city === data.city
       })
     }
 
-    if (state.homeType !== 'All') {
+    if (data.homeType !== 'All') {
       newData = newData.filter((item) => {
-        return item.homeType === state.homeType
+        return item.homeType === data.homeType
       })
     }
 
-    if (state.sortby === 'price-asc') {
+    if (data.rooms !== 'All') {
+      newData = newData.filter((item) => {
+        return item.rooms === data.rooms
+      })
+    }
+
+    if (data.sortby === 'price-asc') {
       newData = newData.sort((a, b) => {
         return a.price - b.price
       })
     }
 
-    if (state.sortby === 'price-dsc') {
+    if (data.sortby === 'price-dsc') {
       newData = newData.sort((a, b) => {
         return b.price - a.price
       })
     }
 
-    if (state.search !== '') {
+    if (data.search !== '') {
       newData = newData.filter((item) => {
         let city = item.city.toLowerCase()
-        let searchText = state.search.toLowerCase()
+        let searchText = data.search.toLowerCase()
         let n = city.match(searchText)
 
         if (n != null) {
-          return newData
+          return true
         } else {
           return false
         }
       })
     }
-    //console.log('newData')
+
     console.log(newData)
-    setState({
-      ...state,
-      filterData: newData,
-    })
+
+    setData({ ...data, filterData: newData })
   }
 
   return (
@@ -186,14 +159,16 @@ const App = () => {
       <Header />
       <section id='content-area'>
         <Filter
-          onChange={(event) => change(event)}
-          //populateAction={populateForms()}
-          globalState={state}
+          onChange={change}
+          populateAction={populateForms}
+          globalState={data}
         />
+
         <div>
           <Listings
-            onChange={(event) => change(event)}
-            globalState={state}
+            onChange={change}
+            filterChange={filteringData}
+            globalState={data}
             changeView={changeView}
           />
         </div>

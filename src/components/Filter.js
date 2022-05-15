@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Filter = (props) => {
-  // useEffect(() => {
-  //   props.populateAction()
-  // }, [])
+  useEffect(() => {
+    props.populateAction()
+  }, [])
 
   const cities = () => {
     //console.log('cities')
-    // console.log(props.globalState.populateFormsData.cities)
+    console.log(props)
     if (props.globalState.populateFormsData.cities !== undefined) {
       let { cities } = props.globalState.populateFormsData
 
@@ -185,6 +185,7 @@ const Filter = (props) => {
               onChange={props.onChange}
             />
           </label>
+
           <hr />
         </div>
       </div>

@@ -3,13 +3,12 @@ import React from 'react'
 const LoopListings = (props) => {
   console.log('globalState')
   console.log(props.globalState)
-  const listingsData = props.globalState.filterData
 
-  if (listingsData === undefined || listingsData.length === 0) {
+  if (props.globalState === undefined || props.globalState.length === 0) {
     return 'Sorry your filter did not match any listing'
   }
 
-  return listingsData.map((listing, index) => {
+  return props.globalState.filterData.map((listing, index) => {
     var formatedPrice = listing.price
       .toFixed(2)
       .replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
