@@ -7,7 +7,7 @@ const Filter = (props) => {
 
   const cities = () => {
     //console.log('cities')
-    console.log(props)
+    //console.log(props)
     if (props.globalState.populateFormsData.cities !== undefined) {
       let { cities } = props.globalState.populateFormsData
 
@@ -86,16 +86,16 @@ const Filter = (props) => {
           <span className='title price'>Price</span>
           <label htmlFor='min_price'>Min.</label>
           <input
-            type='text'
+            type='number'
             name='min_price'
             className='min-price'
             onChange={props.onChange}
             value={props.globalState.min_price}
           />
 
-          <label htmlFor='max_price'>Min.</label>
+          <label htmlFor='max_price'>Max.</label>
           <input
-            type='text'
+            type='number'
             name='max_price'
             className='max-price'
             onChange={props.onChange}
@@ -107,7 +107,7 @@ const Filter = (props) => {
           <span className='title floor-space'>Floor Space</span>
           <label htmlFor='min_floor_space'>Min.</label>
           <input
-            type='text'
+            type='number'
             name='min_floor_space'
             className='min-floor-space'
             onChange={props.onChange}
@@ -115,7 +115,7 @@ const Filter = (props) => {
           />
           <label htmlFor='max_floor_space'>Max.</label>
           <input
-            type='text'
+            type='number'
             name='max_floor_space'
             className='max-floor-space'
             onChange={props.onChange}

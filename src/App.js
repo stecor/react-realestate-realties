@@ -40,10 +40,18 @@ const App = () => {
     data.homeType,
     data.rooms,
     data.price,
-    data.sortby,
     data.elevator,
     data.basement,
+    data.gym,
+    data.pool,
+    data.storage,
+    data.parking,
+    data.sortby,
     data.search,
+    data.max_price,
+    data.min_price,
+    data.max_floor_space,
+    data.min_floor_space,
   ])
 
   let change = (event) => {
@@ -53,9 +61,14 @@ const App = () => {
         ? event.target.checked
         : event.target.value
 
-    // console.log('name=' + name)
-    // console.log('value=' + value)
-    // console.log(event.target.type)
+    console.log('name=' + name)
+    console.log('value=' + value)
+    console.log(event.target.type)
+
+    if (event.target.type === 'number') {
+      console.log('number')
+      value = Number(value)
+    }
 
     setData({ ...data, [name]: value })
   }
@@ -110,6 +123,7 @@ const App = () => {
 
   // FilteringData
   function filteringData() {
+    console.log('city-' + data.max_price)
     let newData = data.listingsData.filter((item) => {
       return (
         item.price >= data.min_price &&
@@ -134,6 +148,42 @@ const App = () => {
     if (data.rooms !== 'All') {
       newData = newData.filter((item) => {
         return item.rooms === data.rooms
+      })
+    }
+
+    if (data.basement !== false) {
+      newData = newData.filter((item) => {
+        return item.basement === data.basement
+      })
+    }
+
+    if (data.gym !== false) {
+      newData = newData.filter((item) => {
+        return item.gym === data.gym
+      })
+    }
+
+    if (data.storage !== false) {
+      newData = newData.filter((item) => {
+        return item.storage === data.storage
+      })
+    }
+
+    if (data.parking !== false) {
+      newData = newData.filter((item) => {
+        return item.parking === data.parking
+      })
+    }
+
+    if (data.elevator !== false) {
+      newData = newData.filter((item) => {
+        return item.elevator === data.elevator
+      })
+    }
+
+    if (data.pool !== false) {
+      newData = newData.filter((item) => {
+        return item.pool === data.pool
       })
     }
 
@@ -163,7 +213,8 @@ const App = () => {
       })
     }
 
-    console.log(newData)
+    console.log(JSON.stringify(newData.price))
+
     setData((prevData) => ({ ...prevData, filterData: newData }))
   }
 
