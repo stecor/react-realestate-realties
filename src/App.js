@@ -227,7 +227,6 @@ const App = () => {
           populateAction={populateForms}
           globalState={data}
         />
-
         <div>
           <Listings
             onChange={change}

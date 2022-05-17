@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LoopListings = (props) => {
   console.log('globalState')
@@ -43,7 +44,9 @@ const LoopListings = (props) => {
                       <span>{listing.rooms} bedr.</span>
                     </div>
                   </div>
-                  <div className='view-btn'>Details</div>
+                  <div className='view-btn'>
+                    <Link to={`/details`}>Details</Link>
+                  </div>
                   <span className='post-date'>Posted: {listing.postDate}</span>
                 </div>
               </div>
