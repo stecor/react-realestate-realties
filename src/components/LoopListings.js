@@ -45,7 +45,12 @@ const LoopListings = (props) => {
                     </div>
                   </div>
                   <div className='view-btn'>
-                    <Link to={`/details`}>Details</Link>
+                    <Link
+                      to={`/details/${listing.post_id}`}
+                      key={listing.post_id}
+                    >
+                      Details
+                    </Link>
                   </div>
                   <span className='post-date'>Posted: {listing.postDate}</span>
                 </div>

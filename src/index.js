@@ -10,7 +10,7 @@ ReactDOM.render(
     <Router>
       <Routes>
         <Route path='/' element={<App />} />
-        <Route path='/details' element={<Details />} />
+        <Route path='/details/:post_id' element={<Details />} />
         <Route
           path='*'
           element={

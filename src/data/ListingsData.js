@@ -1,5 +1,6 @@
 var listingsData = [
   {
+    post_id: 1,
     user: 'Paul Brown',
     userImg: require('../images/Paul Brown_60x60.jpg'),
     postDate: '05/05/2017',
@@ -19,6 +20,7 @@ var listingsData = [
     image: require('../images/Paul Brown.jpg'),
   },
   {
+    post_id: 2,
     user: 'July Peterson',
     userImg: require('../images/July_Peterson_60x60.jpg'),
     postDate: '05/10/2016',
@@ -38,6 +40,7 @@ var listingsData = [
     image: require('../images/JulyPeterson-554x369.jpg'),
   },
   {
+    post_id: 3,
     user: 'Spencer Morgan',
     userImg: require('../images/Spencer Morgan_60x60.jpg'),
     postDate: '18/10/2017',
@@ -57,6 +60,7 @@ var listingsData = [
     image: require('../images/SpencerMorgan.jpeg'),
   },
   {
+    post_id: 4,
     user: 'Mary Justin',
     userImg: require('../images/Mary_Justin_60x60.jpg'),
     postDate: '18/10/2017',
@@ -76,6 +80,7 @@ var listingsData = [
     image: require('../images/MaryJustin554x415.gif'),
   },
   {
+    post_id: 5,
     user: 'Joseph Kern',
     userImg: require('../images/Joseph_Kern_60x60.jpg'),
     postDate: '20/01/2018',
@@ -95,6 +100,7 @@ var listingsData = [
     image: require('../images/JosephKern.jpg'),
   },
   {
+    post_id: 6,
     user: 'Miriam Lindsey',
     userImg: require('../images/Miriam_Lindsey_60x60.jpg'),
     address: '15 Presid. Plaza',
@@ -113,6 +119,7 @@ var listingsData = [
     image: require('../images/Miriam Lindsey.jpeg'),
   },
   {
+    post_id: 7,
     user: 'Mark Philips',
     userImg: require('../images/Mark_Philips_60x60.jpg'),
     postDate: '15/02/2016',
@@ -132,6 +139,7 @@ var listingsData = [
     image: require('../images/MarkPhilips-554x400.jpg'),
   },
   {
+    post_id: 8,
     user: 'Andrew Carl',
     userImg: require('../images/Andrew Carl_60x60.jpg'),
     postDate: '05/02/2017',
@@ -151,6 +159,7 @@ var listingsData = [
     image: require('../images/AndrewCarl_554x363.jpg'),
   },
   {
+    post_id: 9,
     user: 'Lara Andrew',
     userImg: require('../images/Lara Andrew_60x60.jpg'),
     postDate: '25/05/2016',
@@ -170,6 +179,7 @@ var listingsData = [
     image: require('../images/Lara Andrew_554x377.jpg'),
   },
   {
+    post_id: 10,
     user: 'Mark Philips',
     userImg: require('../images/Mark_Philips_60x60.jpg'),
     postDate: '15/02/2016',
