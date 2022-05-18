@@ -97,7 +97,14 @@ const LoopListings = (props) => {
                       <span>{listing.rooms} bedr.</span>
                     </div>
                   </div>
-                  <div className='view-btn'>Details</div>
+                  <div className='view-btn'>
+                    <Link
+                      to={`/details/${listing.post_id}`}
+                      key={listing.post_id}
+                    >
+                      Details
+                    </Link>
+                  </div>
                   <span className='post-date'>
                     Posted on: {listing.postDate}
                   </span>
