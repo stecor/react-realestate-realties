@@ -61,20 +61,27 @@ const App = () => {
         ? event.target.checked
         : event.target.value
 
-    console.log('name=' + name)
-    console.log('value=' + value)
-    console.log(event.target.type)
+    // console.log('name=' + name)
+    // console.log('value=' + value)
+    // console.log(event.target.type)
 
     if (event.target.type === 'number') {
-      console.log('number')
       value = Number(value)
     }
 
-    setData({ ...data, [name]: value })
+    //setData({ ...data, [name]: value })
+    setData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
   }
 
   const changeView = (viewName) => {
-    setData({ ...data, view: viewName })
+    //setData({ ...data, view: viewName })
+    setData((prevData) => ({
+      ...prevData,
+      view: viewName,
+    }))
   }
 
   const populateForms = () => {
@@ -115,10 +122,14 @@ const App = () => {
       cities,
     }
 
-    setData({
-      ...data,
+    // setData({
+    //   ...data,
+    //   populateFormsData: populateFormsData,
+    // })
+    setData((prevData) => ({
+      ...prevData,
       populateFormsData: populateFormsData,
-    })
+    }))
   }
 
   // FilteringData
@@ -211,8 +222,8 @@ const App = () => {
         }
       })
     }
-    setData({ ...data, filterData: newData })
-    //setData((prevData) => ({ ...prevData, filterData: newData }))
+    //setData({ ...data, filterData: newData })
+    setData((prevData) => ({ ...prevData, filterData: newData }))
   }
 
   return (
