@@ -11,7 +11,7 @@ const Details = () => {
   let params = useParams()
 
   const getPost = (id) => {
-    return ListingsData.find((post) => post.post_id === id)
+    return ListingsData.find((item) => item.post_id === id)
   }
 
   const post = getPost(parseInt(params.post_id))

@@ -5,11 +5,12 @@ const Filter = (props) => {
     props.populateAction()
   }, [])
 
+  const globalState = props.globalState
+  const onChange = props.onChange
+
   const cities = () => {
-    //console.log('cities')
-    //console.log(props)
-    if (props.globalState.populateFormsData.cities !== undefined) {
-      let { cities } = props.globalState.populateFormsData
+    if (globalState.populateFormsData.cities !== undefined) {
+      let { cities } = globalState.populateFormsData
 
       return cities.map((item) => {
         return (
@@ -22,8 +23,8 @@ const Filter = (props) => {
   }
 
   const homeTypes = () => {
-    if (props.globalState.populateFormsData.homeTypes !== undefined) {
-      var { homeTypes } = props.globalState.populateFormsData
+    if (globalState.populateFormsData.homeTypes !== undefined) {
+      var { homeTypes } = globalState.populateFormsData
 
       return homeTypes.map((item) => {
         return (
@@ -36,8 +37,8 @@ const Filter = (props) => {
   }
 
   const rooms = () => {
-    if (props.globalState.populateFormsData.rooms !== undefined) {
-      var { rooms } = props.globalState.populateFormsData
+    if (globalState.populateFormsData.rooms !== undefined) {
+      var { rooms } = globalState.populateFormsData
 
       return rooms.map((item) => {
         return (
@@ -58,7 +59,7 @@ const Filter = (props) => {
           name='city'
           className='filters city'
           type='select'
-          onChange={props.onChange}
+          onChange={onChange}
         >
           <option value='All'>All Cities</option>
 
@@ -68,17 +69,13 @@ const Filter = (props) => {
         <select
           name='homeType'
           className='filters homeType'
-          onChange={props.onChange}
+          onChange={onChange}
         >
           <option value='All'>All Home Types</option>
           {homeTypes()}
         </select>
         <label htmlFor='bedrooms'></label>
-        <select
-          name='rooms'
-          className='filters bedrooms'
-          onChange={props.onChange}
-        >
+        <select name='rooms' className='filters bedrooms' onChange={onChange}>
           <option value='0'>All Bedrooms</option>
           {rooms()}
         </select>
@@ -89,8 +86,8 @@ const Filter = (props) => {
             type='number'
             name='min_price'
             className='min-price'
-            onChange={props.onChange}
-            value={props.globalState.min_price}
+            onChange={onChange}
+            value={globalState.min_price}
           />
 
           <label htmlFor='max_price'>Max.</label>
@@ -98,8 +95,8 @@ const Filter = (props) => {
             type='number'
             name='max_price'
             className='max-price'
-            onChange={props.onChange}
-            value={props.globalState.max_price}
+            onChange={onChange}
+            value={globalState.max_price}
           />
         </div>
 
@@ -110,16 +107,16 @@ const Filter = (props) => {
             type='number'
             name='min_floor_space'
             className='min-floor-space'
-            onChange={props.onChange}
-            value={props.globalState.min_floor_space}
+            onChange={onChange}
+            value={globalState.min_floor_space}
           />
           <label htmlFor='max_floor_space'>Max.</label>
           <input
             type='number'
             name='max_floor_space'
             className='max-floor-space'
-            onChange={props.onChange}
-            value={props.globalState.max_floor_space}
+            onChange={onChange}
+            value={globalState.max_floor_space}
           />
         </div>
 
@@ -130,9 +127,9 @@ const Filter = (props) => {
             <span>Elevator</span>
             <input
               type='checkbox'
-              value={props.globalState.elevator}
+              value={globalState.elevator}
               name='elevator'
-              onChange={props.onChange}
+              onChange={onChange}
             />
           </label>
           <hr />
@@ -140,9 +137,9 @@ const Filter = (props) => {
             <span>Swimming Pool</span>
             <input
               type='checkbox'
-              value={props.globalState.pool}
+              value={globalState.pool}
               name='pool'
-              onChange={props.onChange}
+              onChange={onChange}
             />
           </label>
           <hr />
@@ -150,9 +147,9 @@ const Filter = (props) => {
             <span>Basement</span>
             <input
               type='checkbox'
-              value={props.globalState.basement}
+              value={globalState.basement}
               name='basement'
-              onChange={props.onChange}
+              onChange={onChange}
             />
           </label>
           <hr />
@@ -160,9 +157,9 @@ const Filter = (props) => {
             <span>Gym</span>
             <input
               type='checkbox'
-              value={props.globalState.gym}
+              value={globalState.gym}
               name='gym'
-              onChange={props.onChange}
+              onChange={onChange}
             />
           </label>
           <hr />
@@ -170,9 +167,9 @@ const Filter = (props) => {
             <span>Storage</span>
             <input
               type='checkbox'
-              value={props.globalState.storage}
+              value={globalState.storage}
               name='storage'
-              onChange={props.onChange}
+              onChange={onChange}
             />
           </label>
           <hr />
@@ -180,9 +177,9 @@ const Filter = (props) => {
             <span>Parking</span>
             <input
               type='checkbox'
-              value={props.globalState.parking}
+              value={globalState.parking}
               name='parking'
-              onChange={props.onChange}
+              onChange={onChange}
             />
           </label>
 

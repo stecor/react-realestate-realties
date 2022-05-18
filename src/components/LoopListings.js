@@ -2,19 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const LoopListings = (props) => {
-  console.log('globalState')
-  console.log(props.globalState)
+  const globalState = props.globalState
 
-  if (props.globalState === undefined || props.globalState.length === 0) {
+  if (globalState === undefined || globalState.length === 0) {
     return 'Sorry your filter did not match any listing'
   }
 
-  return props.globalState.filterData.map((listing, index) => {
+  return globalState.filterData.map((listing, index) => {
     var formatedPrice = listing.price
       .toFixed(2)
       .replace(/(\d)(?=(\d{3})+\.)/g, '$1,')
 
-    if (props.globalState.view === 'box') {
+    if (globalState.view === 'box') {
       //this is the box view
       return (
         <div className='col-md-3' key={index}>

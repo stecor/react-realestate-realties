@@ -123,7 +123,6 @@ const App = () => {
 
   // FilteringData
   function filteringData() {
-    console.log('city-' + data.max_price)
     let newData = data.listingsData.filter((item) => {
       return (
         item.price >= data.min_price &&
@@ -212,8 +211,6 @@ const App = () => {
         }
       })
     }
-
-    console.log(JSON.stringify(newData.price))
 
     setData((prevData) => ({ ...prevData, filterData: newData }))
   }

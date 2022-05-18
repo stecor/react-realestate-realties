@@ -2,11 +2,11 @@ import React from 'react'
 import ImageGallery from 'react-image-gallery'
 
 const PostImage = (props) => {
-  const post = props.post
+  const images = props.post.images
 
   return (
     <div>
-      <ImageGallery items={post.images} />
+      <ImageGallery items={images} />
     </div>
   )
 }
