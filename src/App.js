@@ -211,8 +211,8 @@ const App = () => {
         }
       })
     }
-
-    setData((prevData) => ({ ...prevData, filterData: newData }))
+    setData({ ...data, filterData: newData })
+    //setData((prevData) => ({ ...prevData, filterData: newData }))
   }
 
   return (
