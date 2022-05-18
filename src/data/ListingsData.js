@@ -52,6 +52,20 @@ var listingsData = [
     storage: true,
     parking: false,
     image: require('../images/JulyPeterson-554x369.jpg'),
+    images: [
+      {
+        original: require('../images/JulyPeterson-554x369.jpg'),
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ],
   },
   {
     post_id: 3,
@@ -72,6 +86,20 @@ var listingsData = [
     storage: false,
     parking: true,
     image: require('../images/SpencerMorgan.jpeg'),
+    images: [
+      {
+        original: require('../images/SpencerMorgan.jpeg'),
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ],
   },
   {
     post_id: 4,
@@ -92,6 +120,20 @@ var listingsData = [
     storage: true,
     parking: true,
     image: require('../images/MaryJustin554x415.gif'),
+    images: [
+      {
+        original: require('../images/MaryJustin554x415.gif'),
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ],
   },
   {
     post_id: 5,
@@ -112,6 +154,20 @@ var listingsData = [
     storage: false,
     parking: false,
     image: require('../images/JosephKern.jpg'),
+    images: [
+      {
+        original: require('../images/JosephKern.jpg'),
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ],
   },
   {
     post_id: 6,
@@ -131,6 +187,20 @@ var listingsData = [
     storage: false,
     parking: true,
     image: require('../images/Miriam Lindsey.jpeg'),
+    images: [
+      {
+        original: require('../images/Miriam Lindsey.jpeg'),
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ],
   },
   {
     post_id: 7,
@@ -151,6 +221,20 @@ var listingsData = [
     storage: false,
     parking: true,
     image: require('../images/MarkPhilips-554x400.jpg'),
+    images: [
+      {
+        original: require('../images/MarkPhilips-554x400.jpg'),
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ],
   },
   {
     post_id: 8,
@@ -171,6 +255,20 @@ var listingsData = [
     storage: true,
     parking: false,
     image: require('../images/AndrewCarl_554x363.jpg'),
+    images: [
+      {
+        original: require('../images/AndrewCarl_554x363.jpg'),
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ],
   },
   {
     post_id: 9,
@@ -191,6 +289,20 @@ var listingsData = [
     storage: false,
     parking: true,
     image: require('../images/Lara Andrew_554x377.jpg'),
+    images: [
+      {
+        original: require('../images/Lara Andrew_554x377.jpg'),
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ],
   },
   {
     post_id: 10,
@@ -211,6 +323,20 @@ var listingsData = [
     storage: false,
     parking: true,
     image: require('../images/MarkPhilips-554x400.jpg'),
+    images: [
+      {
+        original: require('../images/MarkPhilips-554x400.jpg'),
+        thumbnail: 'https://picsum.photos/id/1018/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1015/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1015/250/150/',
+      },
+      {
+        original: 'https://picsum.photos/id/1019/1000/600/',
+        thumbnail: 'https://picsum.photos/id/1019/250/150/',
+      },
+    ],
   },
 ]
 
