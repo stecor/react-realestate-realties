@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LoopListings from './LoopListings'
+import { Pagination } from 'antd';
+
+
 
 const Listings = (props) => {
   const globalState = props.globalState
   const changeView = props.changeView
   const onChange = props.onChange
+ 
+  const[page,setPage]= useState(1)
+ 
+ 
 
   return (
     <section id='listings'>
@@ -48,12 +55,14 @@ const Listings = (props) => {
 
       <section className='listings-results'>
         <div className='row'>
-          <LoopListings globalState={globalState} />
+        
+          <LoopListings globalState={globalState}  />
         </div>
       </section>
-
-      <section id='pagination'>
-        <div className='row'>
+      
+      
+      {/* <section id='pagination'> */}
+         {/* <div className='row'>
           <ul className='pages'>
             <li>Prev</li>
             <li className='active'>1</li>
@@ -64,8 +73,16 @@ const Listings = (props) => {
             <li>next</li>
           </ul>
         </div>
-      </section>
-    </section>
+      </section> */}
+
+      
+      <Pagination defaultCurrent={page} pageSize={3} total={globalState.filterData.length}   />
+     
+
+    </section> 
+    
+     
+     
   )
 }
 

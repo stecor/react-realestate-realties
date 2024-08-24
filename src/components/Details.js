@@ -5,7 +5,8 @@ import Header from './Header'
 import PostImage from './detailsComponents/PostImage'
 import PostInfo from './detailsComponents/PostInfo'
 import { Row, Col } from 'antd'
-import 'antd/dist/antd.css'
+
+
 
 const Details = () => {
   let params = useParams()
@@ -22,9 +23,9 @@ const Details = () => {
       <section id='content-area'>
         <div
           className='postPage'
-          style={{ width: '100', padding: '3rem 4rem' }}
+          style={{ width: '100', padding: '3rem 6rem' }}
         >
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center',overflow: 'auto' }}>
             <h1>{post.homeType}</h1>
           </div>
           <Row gutter={[16, 16]}>

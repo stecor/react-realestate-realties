@@ -76,14 +76,14 @@ const Filter = (props) => {
         </select>
         <label htmlFor='bedrooms'></label>
         <select name='rooms' className='filters bedrooms' onChange={onChange}>
-          <option value='0'>All Bedrooms</option>
+          <option value='All'>All Bedrooms</option>
           {rooms()}
         </select>
         <div className='filters price'>
-          <span className='title price'>Price</span>
+          <span className='title price'>Price ($)</span>
           <label htmlFor='min_price'>Min.</label>
           <input
-            type='number'
+            type='text'
             name='min_price'
             className='min-price'
             onChange={onChange}
@@ -92,7 +92,7 @@ const Filter = (props) => {
 
           <label htmlFor='max_price'>Max.</label>
           <input
-            type='number'
+            type='text'
             name='max_price'
             className='max-price'
             onChange={onChange}
@@ -101,10 +101,10 @@ const Filter = (props) => {
         </div>
 
         <div className='filters floor-space'>
-          <span className='title floor-space'>Floor Space</span>
+          <span className='title floor-space'>Floor Space (Sqf)</span>
           <label htmlFor='min_floor_space'>Min.</label>
           <input
-            type='number'
+            type='text'
             name='min_floor_space'
             className='min-floor-space'
             onChange={onChange}
@@ -112,7 +112,7 @@ const Filter = (props) => {
           />
           <label htmlFor='max_floor_space'>Max.</label>
           <input
-            type='number'
+            type='text'
             name='max_floor_space'
             className='max-floor-space'
             onChange={onChange}

@@ -3,8 +3,11 @@ import Header from './components/Header'
 import Filter from './components/Filter'
 import Listings from './components/Listings'
 import listData from './data/ListingsData'
+import axios from 'axios'
+
 
 const App = () => {
+
   const initialData = {
     listingsData: listData,
     //filterData
@@ -31,7 +34,21 @@ const App = () => {
     search: '',
   }
 
+
+
   const [data, setData] = useState(initialData)
+
+
+
+  // useEffect(() => {
+  //     fetch('http://localhost:8800/user')
+  //     .then(user=> setData(user))
+    
+    
+  //   },[])
+
+ 
+// console.log(data);
 
   useEffect(() => {
     filteringData()
@@ -85,6 +102,7 @@ const App = () => {
   }
 
   const populateForms = () => {
+
     // city
     var cities = data.listingsData.map((item) => {
       return item.city
@@ -102,24 +120,34 @@ const App = () => {
     var homeTypes = data.listingsData.map((item) => {
       return item.homeType
     })
+    //Set Constructor - remove duplicate elements from the object.
     homeTypes = new Set(homeTypes)
+
+    //Spread operator - turn object into array
     homeTypes = [...homeTypes]
 
+    //Sort function - sorts the elements as strings in alphabetical and ascending
     homeTypes = homeTypes.sort()
 
     //bedrooms
     var rooms = data.listingsData.map((item) => {
       return item.rooms
     })
+
+    //Set Constructor - remove duplicate elements from the object.
     rooms = new Set(rooms)
+
+    //Spread operator - turn object into array
     rooms = [...rooms]
 
+    //Sort function - sorts the elements as strings in alphabetical and ascending
     rooms = rooms.sort()
 
     const populateFormsData = {
+      cities,
       homeTypes,
       rooms,
-      cities,
+      
     }
 
     // setData({
@@ -228,7 +256,7 @@ const App = () => {
 
   return (
     <div>
-      <Header />
+      <Header id="header"/>
       <section id='content-area'>
         <Filter
           onChange={change}

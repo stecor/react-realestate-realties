@@ -4,6 +4,8 @@
 @import '_listings.css';
 @import '_content-area.css';
 @import '~react-image-gallery/styles/css/image-gallery.css';
+@import '~antd/dist/antd.css';
+
 
 *,
 html,

@@ -1,8 +1,13 @@
+
 header {
   background: #021847;
   color: #fff;
-  overflow: auto;
+  overflow: hidden;
   padding: 20px 15px;
+  position: fixed;
+  width: 100%; /* Full width */
+  z-index: 1;
+  
 }
 header .logo {
   float: left;
@@ -14,6 +19,7 @@ header .logo .detailLogo {
 }
 header nav {
   float: right;
+
 }
 header nav a {
   color: #fff;

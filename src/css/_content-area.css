@@ -4,6 +4,7 @@
   min-height: 100vh;
 }
 #filter {
+  padding-top: 120px;
   background: #f2f2f2;
   width: 30%;
   max-width: 300px;
@@ -19,6 +20,8 @@
   font-weight: 700px;
   text-transform: uppercase;
 }
+
+/* Filter Select  */
 #filter select {
   background: transparent;
   padding: 10px;
@@ -35,6 +38,8 @@
   display: block;
   margin-bottom: 1.5rem;
 }
+
+/* Filter Label  */
 #filter .filters label {
   font-size: 0.6rem;
   color: #c8c8c8;
@@ -76,7 +81,10 @@
   float: left;
   padding: 15px;
   background: #fffeff;
+  padding-top: 120px;
 }
+
+/* Search area  */
 #listings .search-area input[type='text'] {
   width: 70%;
   background: transparent;
@@ -87,7 +95,7 @@
   font-weight: 300;
   color: #c8c8c8;
 }
-
+/* Sort by area  */
 #listings .sortby-area {
   margin-bottom: 20px;
 }
@@ -103,7 +111,7 @@
   color: #828d9d;
   font-size: 0.9rem;
   font-weight: 300;
-  border: 1px solid #c8c8c8;
+  border: 1px solid #c8c;
   background: transparent;
   padding: 20px;
   display: inline-block;
@@ -123,6 +131,8 @@
   font-size: 2.1rem;
   color: darkgrey;
 }
+
+/* Listings Results  */
 #listings .listings-results .listing {
   background: #fff;
   border-radius: 20px;
@@ -135,6 +145,7 @@
   color: #fff;
   padding: 15px;
   position: relative;
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -160,6 +171,7 @@
   bottom: 20px;
   opacity: 1;
   transition: all 0.4s ease-in-out;
+  color: #021847;
   text-shadow: 0px 1px 4px rgba(91, 91, 91, 1);
 }
 #listings .listings-results .listing-img .details {
@@ -171,6 +183,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+ 
   -webkit-border-top-left-radius: 20px;
   -webkit-border-top-right-radius: 20px;
   -moz-border-radius-topleft: 20px;
@@ -313,3 +326,4 @@
   background: #639;
   cursor: pointer;
 }
+
